@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Side Bar</title>
+        <style>
+            body {
+                margin: 0;
+                background-color: #3c505b;
+                color: #fff7;
+                font-family: comfortaa;
+            }
+
+            /*Main Style  */
+            main {
+                display: grid;
+                place-items: center;
+                padding: 48px;
+            }
+            main img {
+                width: 46%;
+                height: auto;
+            }
+
+            /* burger Bar */
+            .burgur-bar {
+                z-index: 9999;
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+                background-color: #fff7;
+                padding: 8px;
+                display: grid;
+                place-items: center;
+                position: fixed;
+                top: 12px;
+                right: 12px;
+                cursor: pointer;
+            }
+            .line {
+                height: 4px;
+                border-radius: 24px;
+                width: 75%;
+                background-color: #000000a9;
+                transition: 0.5s;
+            }
+            .line-child1 {
+                rotate: 45deg;
+            }
+            .line-child2 {
+                rotate: -45deg;
+            }
+
+            /*Side Nav  */
+            .side-nav {
+                width: 25%;
+                height: 100%;
+                padding: 8px;
+                background-color: #000;
+                position: fixed;
+                top: 0;
+                right: 0;
+                border-radius: 50%;
+                transform: translateX(108%);
+                transition: 1s;
+                scale: 0.8;
+            }
+
+            /* Styles to add for Side Nav */
+            .go-left {
+                border-radius: 4px;
+                transform: translateX(0%);
+                scale: 1;
+            }
+            .opacity-0 {
+                opacity: 0;
+            }
+            /* Side Nav Content */
+            .side-nav h2 {
+                text-align: center;
+                font-size: 32px;
+            }
+            .side-nav ul {
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+                justify-content: center;
+            }
+
+            .side-nav a {
+                font-size: 24px;
+                color: #fff7;
+                text-decoration: none;
+                list-style: none;
+                padding: 8px;
+                transition: 0.5s;
+            }
+            .side-nav a:hover {
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="burgur-bar">
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+            </div>
+            <div class="side-nav">
+                <h2 class="">WASSAP</h2>
+                <ul class="">
+                    <a href="#"><li>About</li></a
+                    ><a href="#"><li>Contact</li></a
+                    ><a href="#"><li>Resume</li></a>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <img src="./jake-hills-z0gDv24X3uQ-unsplash.jpg" alt="" />
+            <div class="content">
+                <h1>
+                    Jake Hills
+                    <small> by jakehills </small>
+                </h1>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Qui ea neque vitae, molestias quasi ipsa ullam tempore?
+                    Totam, non voluptate atque iure voluptatem sit harum
+                    molestiae dolor molestias dolorum eaque? Lorem ipsum dolor,
+                    sit amet consectetur adipisicing elit. Qui ea neque vitae,
+                    molestias quasi ipsa ullam tempore? Totam, non voluptate
+                    atque iure voluptatem sit harum molestiae dolor molestias
+                    dolorum eaque? Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Qui ea neque vitae, molestias quasi ipsa
+                    ullam tempore? Totam, non voluptate atque iure voluptatem
+                    sit harum molestiae dolor molestias dolorum eaque?
+                </p>
+            </div>
+        </main>
+        <script>
+            var button = document.querySelector(".burgur-bar");
+            var lineOne = document.querySelector(".line1");
+            var lineTwo = document.querySelector(".line2");
+            var sideNav = document.querySelector(".side-nav");
+            var allChildren = sideNav.children;
+            var i = 0;
+            button.addEventListener("click", function () {
+                if (i == 0) {
+                    i = 1;
+                    sideNav.classList.add("go-left");
+                    lineOne.classList.add("line-child1");
+                    lineTwo.classList.add("line-child2");
+                } else if (i == 1) {
+                    i = 0;
+                    sideNav.classList.remove("go-left");
+                    lineOne.classList.remove("line-child1");
+                    lineTwo.classList.remove("line-child2");
+                }
+            });
+        </script>
+    </body>
+</html>
